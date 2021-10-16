@@ -1,0 +1,8 @@
+Generate a unit train signal
+e.g.
+nomial:
+  0001111000
+  0111100000
+  0000011110
+anomaly:
+  0110001010
