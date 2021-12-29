@@ -1,4 +1,5 @@
 import warnings
+import math
 def Dec2bin (num_decimal, width, frac, signedness = "unsigned"):
     """
     This function converts decimal to fixed point binaries, returns a string
@@ -137,3 +138,8 @@ def Hex2dec (num_hex, frac, signedness = "unsigned"):
         else:
             num_dec = int(num_hex, 16)
     return num_dec/(2 ** frac)
+
+def Dec2purehex (num_decimal, width, frac, signedness = "unsigned"):
+    Str_hex = Dec2hex(num_decimal, width, frac, signedness)[2:]
+    return "0"*(math.ceil(width/4) - len(Str_hex)) + Str_hex
+    
