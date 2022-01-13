@@ -1,5 +1,7 @@
 import warnings
 import math
+import struct
+
 def Dec2bin (num_decimal, width, frac, signedness = "unsigned"):
     """
     This function converts decimal to fixed point binaries, returns a string
@@ -142,4 +144,9 @@ def Hex2dec (num_hex, frac, signedness = "unsigned"):
 def Dec2purehex (num_decimal, width, frac, signedness = "unsigned"):
     Str_hex = Dec2hex(num_decimal, width, frac, signedness)[2:]
     return "0"*(math.ceil(width/4) - len(Str_hex)) + Str_hex
-    
+
+def Dec2float64 (num_decimal):
+    return hex(struct.unpack('<Q', struct.pack('<d', num_decimal))[0])[2:]
+
+def Dec2float32 (num_decimal):
+    return hex(struct.unpack('<I', struct.pack('<f', num_decimal))[0])[2:]
